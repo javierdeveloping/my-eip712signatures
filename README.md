@@ -1,13 +1,8 @@
-## Foundry
+## EIP-712 Signatures
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+EIP-712 introduced the ability to sign transactions off-chain which other users can later execute on-chain. A common example is EIP-2612 gasless token approvals.
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Traditionally, setting a user or contract allowance to transfer ERC-20 tokens from an owner’s balance required the owner to submit an approval on-chain. As this proved to be poor UX, DAI introduced ERC-20 permit (later standardized as EIP-2612) allowing the owner to sign the approval off-chain which the spender (or anyone else!) can submit on-chain prior to the transferFrom.
 
 ## Documentation
 
@@ -17,50 +12,12 @@ https://book.getfoundry.sh/
 
 ### Build
 
-```shell
+```
 $ forge build
 ```
 
 ### Test
 
-```shell
+```
 $ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
 ```
